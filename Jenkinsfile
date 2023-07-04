@@ -7,13 +7,14 @@ pipeline {
 
                 echo 'Building..'
            javac JenkinsDemo.java
+                java JenkinsDemo
         }
 }
         stage('Run') {
             steps {
 
                 echo 'Running..'
-           java JenkinsDemo
+           
  
 }
         }
