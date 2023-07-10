@@ -2,29 +2,15 @@ pipeline {
     agent any
 
     stages {
-        stage('Compile') {
+        stage('Build') {
             steps {
-
-                echo 'Building..'
-           javac JenkinsDemo.java
-                java JenkinsDemo
+                sh 'mvn clean package' // Replace with your build command or script
+            }
         }
-}
-        stage('Run') {
+        stage('Archive') {
             steps {
-
-                echo 'Running..'
-           
- 
-}
-        }
-        stage('Deploy') {
-            steps {
-
-  
-                echo 'Deploying....'
-           
+                archiveArtifacts 'target/*.jar' // Replace with the path to your generated JAR file
+            }
         }
     }
-}
 }
